@@ -1,0 +1,10 @@
+{% extends 'bootstrap5/bootstrap5.html' %}
+{% load bootstrap5 %}
+
+{% block bootstrap5_content %}
+<form method="GET">
+  <input type="text" name="q" value="" id="searchbar" autofocus>
+  <input class="button" type="submit" value="Search">
+</form>
+
+{% endblock %}

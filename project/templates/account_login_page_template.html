@@ -1,0 +1,21 @@
+{% extends "base_without_nav.html" %}
+{% load bootstrap5 %}
+{% load static %}
+
+{% block bootstrap5_title %}Login{% endblock %}
+
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/my_styles.css' %}">
+    <div class="container text-white d-flex justify-content-center align-items-center" style="min-height: 100vh; background-color: #0a3a5c;">
+        <div class="d-flex flex-column align-items-center w-100" style="max-width: 500px; margin-top: 50px">
+            <h3 class="text-center text-white mb-4">Vítejte v aplikaci replacement</h3>
+            <form method="post" action=".">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                <br><br>
+                <button type="submit" class="btn btn-dark btn-animace:hover w-100">Přihlásit se</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

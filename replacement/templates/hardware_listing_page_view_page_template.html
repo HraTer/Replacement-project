@@ -1,0 +1,44 @@
+{% extends "base_with_bootstrap.html" %}
+{% load bootstrap5 %}
+
+{% block bootstrap5_title %}Hardware list{% endblock %}
+
+
+{% block hlavni_nadpis %}
+
+    Seznam vsech dostupnych zařízení{% endblock %}
+
+{% block content %}
+
+        <!-- first_name last_name_ date_of_birth -->
+        <table class="table table-dark table-striped">
+            <thead>
+            <tr>
+                <th scope="col">PK</th>
+                <th scope="col">Stroj</th>
+                <th scope="col">Pořizovací cena</th>
+                <th scope="col">Délka odpisu</th>
+                <th scope="col" class="text-end">Replacement</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for hardware in hardware %}
+                <tr>
+                    <td>{{ hardware.pk }}</td>
+                    <td>{{ hardware.hw_name }}</td>
+                    <td>{{ hardware.hw_price }}</td>
+                    <td>{{ hardware.write_off_length }}</td>
+
+
+                    <td class="text-end">
+                        <a class="btn btn-sm btn-info" href="{% url 'replacement:replacement-calculation' hardware.pk %}"> Výpočet replacement</a>
+                    </td>
+
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+{% endblock %}

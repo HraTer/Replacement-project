@@ -1,0 +1,19 @@
+{% extends "base_without_nav.html" %}
+{% load bootstrap5 %}
+{% load static %}
+
+{% block bootstrap5_title %}Odhlášení{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/my_styles.css' %}">
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 70vh;background-color: #0a3a5c;">
+        <div class="d-flex flex-column align-items-center w-100">
+            <h3 class="text-center btn-animace text-white mb-4">Opravdu se chcete odhlásit, {{ user.username }}?</h3>
+            <br>
+            <div class="d-flex">
+                <a href="{% url 'replacement:home-page' %}" style="margin-right: 10px;"><button class="btn btn-dark btn-animace:hover w-100">Neodhlašovat</button></a>
+                <a href="{% url 'logout' %}?userid={{ user.pk }}"><button class="btn btn-dark btn-animace:hover w-100">Odhlásit se</button></a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

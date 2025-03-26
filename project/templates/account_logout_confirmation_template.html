@@ -1,0 +1,21 @@
+{% extends "base_without_nav.html" %}
+{% load bootstrap5 %}
+{% load static %}
+
+{% block bootstrap5_title %}Odhlášení{% endblock %}
+
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/my_styles.css' %}">
+    <div class="container d-flex text-white justify-content-center align-items-center" style="min-height: 70vh;background-color: #0a3a5c;">
+        <div class="d-flex flex-column align-items-center w-100">
+            {% if user %}
+                <h3 class="text-center text-white text-success mb-4">Odhlášení uživatele {{ user.username }} bylo úspešné!</h3>
+                <br>
+                <a href="{% url 'login' %}"><button class="btn btn-dark btn-animace:hover w-100">Zpět na přihlášení</button></a>
+            {% else %}
+                <h3 class="text-center text-success mb-4" >Error - User not found!</h3>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

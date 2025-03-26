@@ -1,0 +1,53 @@
+{% extends "base_with_bootstrap.html" %}
+{% load bootstrap5 %}
+
+{% block bootstrap5_title %}
+    Detail HW
+{% endblock %}
+
+{% block hlavni_nadpis %}
+    <h3 class="text-center mt-4 mb-4">Detail vybraného stroje</h3>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card shadow-lg rounded-lg">
+        <div class="card-header bg-secondary text-white">
+            <h3>Detail stroje: {{ hardware.hw_name }}</h3>
+            <div class="d-flex justify-content-end mt-3">
+    <a class="btn btn-sm btn-info mx-2 btn-hover" href="{% url 'replacement:replacement-calculation' hardware.pk %}">
+        Výpočet replacement
+    </a>
+    <a class="btn btn-sm btn-light mx-2 btn-hover" href="{% url 'replacement:hw-update' hardware.pk %}?next={{ request.path }}">
+        ✎
+    </a>
+    <a class="btn btn-sm btn-danger mx-2 btn-hover" href="{% url 'replacement:hw-delete' hardware.pk %}?next={{ request.path }}">
+        🗑️
+    </a>
+    </div>
+        </div>
+        <div class="card-body">
+            <div class="row my-3">
+                <div class="col-3 font-weight-bold">Název stroje:</div>
+                <div class="col">{{ hardware.hw_name }}</div>
+            </div>
+            <hr>
+            <div class="row my-3">
+                <div class="col-3 font-weight-bold">Brand:</div>
+                <div class="col">{{ hardware.brand_name }}</div>
+            </div>
+            <hr>
+            <div class="row my-3">
+                <div class="col-3 font-weight-bold">Pořizovací cena:</div>
+                <div class="col">{{ hardware.hw_price }} Kč</div>
+            </div>
+            <hr>
+            <div class="row my-3">
+                <div class="col-3 font-weight-bold">Délka odpisu:</div>
+                <div class="col">{{ hardware.write_off_length }} let</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

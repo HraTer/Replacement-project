@@ -1,0 +1,64 @@
+{% extends 'bootstrap5/bootstrap5.html' %}
+{% load bootstrap5 %}
+
+{% block bootstrap5_content %}
+<div class="container">
+        <div class="row mt-3">
+            <div class="col">
+                <h1 class="mt-3">{% block title %}{% endblock %}</h1>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col">
+                <div class="container">
+                    <div class="row mt-3"> <!-- urcuje pocet sloupcu -->
+                        <div class="col">  <!-- urcuje pocet radku -->
+                            <h1 class="mt-3">{% block hlavni_nadpis %}{% endblock %}</h1>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col">
+            <!-- TADY BUDE MENU -->
+
+
+            </div>
+        </div>
+
+        {% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
+
+        {% block content %}(no content){% endblock %}
+        <div id="footer">
+            <div class="container-fluid d-flex justify-content-between align-items-center">
+
+
+                <div class="d-flex justify-content-start align-items-center me-3 ms-3">
+                    <div style="margin-right: 15px;">
+                        User:&nbsp;&nbsp;
+                        {% if user.is_authenticated %}
+                            {{ user }}
+                        {% else %}
+                            Not logged in
+                        {% endif %}
+                    </div>
+
+                    <div>
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'logout-yes-no' %}?userid={{ user.pk }}">
+                                <button class="btn-sm btn-animace">Logout</button>
+                            </a>
+                        {% else %}
+                            <a href="{% url 'login' %}">
+                                <button class="btn-sm btn-animace">Login</button>
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+ </div>
+ </div>
+{% endblock %}

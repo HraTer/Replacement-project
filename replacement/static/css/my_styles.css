@@ -1,0 +1,17 @@
+
+
+/* Zakulacené rohy pro tlačítko */
+.btn-animace {
+    border-radius: 8px; /* Zakulatí rohy tlačítka */
+}
+
+/* Efekt při najetí myší */
+.btn-animace:hover {
+    background-color: #0a6bbd; /* Tmavší modrá barva */
+    transform: scale(1.1); /* Zvětšení tlačítka o 10% */
+}
+
+body {
+    background-color: #0a3a5c; /* Modrá barva */
+    color: #ffffff; /* Bílá barva textu pro kontrast */
+}

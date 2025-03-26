@@ -1,0 +1,52 @@
+#nav {
+    background-color: #f7f7f7; /* pozadí */ !important;
+    padding: 20px; !important;
+    text-align: center; !important;
+}
+
+.navbar-brand {
+    font-size: 2rem; !important;
+    font-weight: bold; !important;
+    color: #000; /* Barva textu */ !important;
+    text-transform: uppercase; !important;
+}
+
+.nav-list {
+    list-style: none; !important;
+    padding: 0; !important;
+    margin: 20px 0; !important;
+}
+
+.nav-item {
+    display: inline-block; !important;
+    margin: 0 15px; !important;
+}
+
+.nav-link {
+    font-size: 1.5rem; !important;
+    font-weight: 600; !important;
+    color: #3a7bd5; /* Odkazy */ !important;
+    text-decoration: none; !important;
+    position: relative; !important;
+    transition: color 0.3s ease; !important;
+}
+
+.nav-link:hover {
+    color: #5a9dd5; !important;
+}
+
+.nav-link::before {
+    content: ''; !important;
+    position: absolute; !important;
+    bottom: -10px; !important;
+    left: 50%; !important;
+    transform: translateX(-50%); !important;
+    width: 0; !important;
+    height: 3px; !important;
+    background-color: #3a7bd5; !important;
+    transition: width 0.3s ease; !important;
+}
+
+.nav-link:hover::before {
+    width: 100%; !important;
+}

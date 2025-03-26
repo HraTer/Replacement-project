@@ -1,0 +1,65 @@
+{% extends "base_with_bootstrap.html" %}
+{% load bootstrap5 %}
+
+{% block bootstrap5_title %}Delete hardware{% endblock %}
+
+{% block hlavni_nadpis %}
+    <h3 class="text-center mt-4 mb-4">Smazání stroje</h3>
+{% endblock %}
+
+
+{% block content %}
+    {% if hardware %}
+    <div class="container mt-4">
+        <div class="card shadow-lg rounded-lg">
+            <div class="card-header bg-danger text-white">
+                <h3>Vymazat hardware: {{ hardware.hw_name }}</h3>
+            </div>
+            <div class="card-body">
+                <form method="post" action=".">
+                    {% csrf_token %}
+
+                    <input type="hidden" name="next" value="{{ request.GET.next }}">
+
+                    <div class="row mb-3">
+                        <div class="col">
+                            <h5 class="text-danger">Opravdu si přeješ vymazat stroj: <strong>{{ hardware }}</strong>?</h5>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col text-end">
+                            <button type="submit" class="btn btn-danger">Vymazat</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% else %}
+    <div class="container mt-4">
+        <div class="card shadow-lg rounded-lg">
+            <div class="card-body">
+                <h5 class="text-danger">Nezadali jste platný stroj.</h5>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+{% if messages %}
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+{% endblock %}
+
+
